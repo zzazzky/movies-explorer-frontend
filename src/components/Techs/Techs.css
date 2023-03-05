@@ -1,0 +1,135 @@
+.techs {
+  background-color: #272727;
+  padding: 100px 70px;
+}
+
+.techs__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 123%;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  margin: 0 0 23px 0;
+}
+
+.techs__container {
+  border-top: #DADADA 1px solid;
+}
+
+.techs__subtitle {
+  margin: 90px auto 26px auto;
+  padding: 0;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 116%;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+}
+
+.techs__text {
+  margin: 0 auto 0 auto;
+  padding: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  max-width: 460px;
+}
+
+.techs__cards {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin: 100px 0 0 0;
+  justify-content: center;
+  padding: 0;
+}
+
+.techs__card-text {
+  margin: 0 auto 0 auto;
+  padding: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 121%;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  max-width: 460px;
+}
+
+.techs__card {
+  width: 90px;
+  height: 60px;
+  background-color: #303030;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .techs {
+    padding: 90px 50px;
+  }
+
+  .techs__subtitle {
+    margin: 80px auto 22px auto;
+  }
+
+  .techs__cards {
+    margin: 83px 0 0 0;
+  }
+
+  .techs__card {
+    width: 84px;
+    height: 57px;
+  }
+
+  .techs__text {
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+  .techs__card-text {
+    font-size: 12px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs {
+    padding: 70px 18px;
+  }
+
+  .techs__title {
+    font-size: 18px;
+    line-height: 122%;
+    margin: 0 0 28px 0;
+  }
+
+  .techs__container {
+    border-top: #000 1px solid;
+  }
+
+  .techs__subtitle {
+    margin: 60px auto 24px auto;
+    font-size: 30px;
+    line-height: 120%;
+  }
+
+  .techs__text {
+    font-size: 11px;
+    line-height: 145%;
+  }
+
+  .techs__cards {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 50px auto 0 auto;
+    justify-items: center;
+  }
+}
