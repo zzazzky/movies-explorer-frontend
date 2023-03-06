@@ -42,7 +42,7 @@
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
   .notFound__title {
     font-size: 80px;
     margin: 329px 0 0 0;

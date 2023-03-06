@@ -17,11 +17,14 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  column-gap: 10px;
 }
 
 .about-me__photo {
+  max-width: 300px;
   width: 270px;
   border-radius: 10px;
+  align-self: center;
 }
 
 .about-me__info {

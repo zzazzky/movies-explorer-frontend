@@ -45,11 +45,11 @@ function Profile() {
           />
         </label>
         <span className="profile__error"></span>
-        <button type="submit" className="profile__edit-button button">
+        <button type="submit" className="profile__edit-button app__button">
           Редактировать
         </button>
       </form>
-      <button className="profile__logout-button button">
+      <button className="profile__logout-button app__button">
         Выйти из аккаунта
       </button>
     </main>

@@ -1,6 +1,5 @@
 .search-form {
-  padding: 80px 70px 40px 70px;
-  border-bottom: #424242 1px solid;
+  padding: 80px 70px 0 70px;
   display: flex;
   flex-direction: column;
 }
@@ -18,6 +17,7 @@
 .search-form__input {
   background-color: #2F2F2F;
   padding: 15px 22px;
+  border-radius: 4px;
   margin: 0;
   font-weight: 400;
   font-size: 14px;
@@ -46,44 +46,47 @@
 
 .search-form__switcher-container {
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0 40px 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  border-bottom: #424242 1px solid;
 }
 
 .search-form__switcher {
   width: 34px;
   height: 14px;
+  display: block;
   border-radius: 20px;
   border: none;
+  appearance: none;
   background-color: #2F2F2F;
-  align-items: center;
   padding: 0 2px;
   transition: background-color 1s ease 0s;
+  position: relative;
 }
 
-.search-form__switcher_active {
+.search-form__switcher::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 1s ease 0s;
+}
+
+.search-form__switcher:checked {
   background-color: #3DDC84;
   transition: background-color 1s ease 0s;
 }
 
-.search-form__toggler {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #FFFFFF;
-  transform: translate(0px);
-  transition: transform 1s ease 0s;
-}
-
-.search-form__switcher_active .search-form__toggler {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #FFFFFF;
-  transform: translate(20px);
-  transition: transform 1s ease 0s;
+.search-form__switcher:checked::before {
+  left: 22px;
 }
 
 .search-form__text {
@@ -97,17 +100,21 @@
 
 @media screen and (max-width: 1023px) {
   .search-form {
-    padding: 80px 30px 40px 30px;
+    padding: 80px 30px 0 30px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
   .search-form {
-    padding: 80px 14px 43px 14px;
+    padding: 80px 14px 0 14px;
   }
 
   .search-form__form {
     margin: 0 0 46px 0;
+  }
+
+  .search-form__switcher-container {
+    padding: 0 0 43px 0;
   }
 
   .search-form__input {

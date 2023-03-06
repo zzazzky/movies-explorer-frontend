@@ -4,7 +4,7 @@ import photoPath from "../../images/about-me__photo.jpg";
 
 const AboutMe = forwardRef((props, ref) => {
   return (
-    <div ref={ref} className="about-me">
+    <section ref={ref} className="about-me">
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__container">
         <img
@@ -26,7 +26,7 @@ const AboutMe = forwardRef((props, ref) => {
             </p>
           </div>
           <a
-            className="about-me__link button"
+            className="about-me__link app__button"
             href="https://github.com/zzazzky"
             target="_blank"
           >
@@ -34,7 +34,7 @@ const AboutMe = forwardRef((props, ref) => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

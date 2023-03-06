@@ -7,16 +7,16 @@ function MoviesCard(props) {
   if (location.pathname === "/movies") {
     if (props.isLiked) {
       buttonClassName =
-        "movie-card__button movie-card_button_type_liked button";
+        "movie-card__button movie-card__button_type_liked app__button";
     } else {
-      buttonClassName = "movie-card__button button";
+      buttonClassName = "movie-card__button app__button";
     }
   } else {
-    buttonClassName = "movie-card__button movie-card_button_type_delete button";
+    buttonClassName = "movie-card__button movie-card__button_type_delete app__button";
   }
 
   return (
-    <li className="movie-card list__item">
+    <li className="movie-card app__list-item">
       <img
         className="movie-card__picture"
         src={props.thumbnail}

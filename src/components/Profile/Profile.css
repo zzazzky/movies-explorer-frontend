@@ -106,7 +106,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
   .profile {
     padding: 70px 0 40px 0;
   }
@@ -135,7 +135,7 @@
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
   .profile {
     padding: 70px 30px 40px 30px;
   }

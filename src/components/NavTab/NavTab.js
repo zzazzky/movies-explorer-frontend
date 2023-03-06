@@ -14,25 +14,27 @@ function NavTab(props) {
   }
 
   return (
-    <nav className="nav-tab">
-      <ul className="nav-tab__links list">
-        <li
-          className="nav-tab__item list__item button"
-          onClick={scrollToAboutProject}
-        >
-          О проекте
-        </li>
-        <li className="nav-tab__item list__item button" onClick={scrollToTechs}>
-          Технологии
-        </li>
-        <li
-          className="nav-tab__item list__item button"
-          onClick={scrollToAboutMe}
-        >
-          Студент
-        </li>
-      </ul>
-    </nav>
+    <section className="nav-tab" aria-label="Навигация по странице">
+      <nav>
+        <ul className="nav-tab__links app__list">
+          <li
+            className="nav-tab__item app__list-item app__button"
+            onClick={scrollToAboutProject}
+          >
+            О проекте
+          </li>
+          <li className="nav-tab__item app__list-item app__button" onClick={scrollToTechs}>
+            Технологии
+          </li>
+          <li
+            className="nav-tab__item app__list-item app__button"
+            onClick={scrollToAboutMe}
+          >
+            Студент
+          </li>
+        </ul>
+      </nav>
+    </section>
   );
 }
 

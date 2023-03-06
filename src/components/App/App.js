@@ -15,7 +15,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="page">
+    <div className="app">
       {location.pathname === "/" && <Header loggedIn={false} />}
       {(location.pathname === "/movies" ||
         location.pathname === "/saved-movies" ||

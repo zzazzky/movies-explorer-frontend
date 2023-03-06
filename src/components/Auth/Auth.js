@@ -8,7 +8,7 @@ function Auth(props) {
       <h1 className="auth__title">{props.title}</h1>
       <form className="auth__form" name={props.formName}>
         <div className="auth__inputs">{props.children}</div>
-        <button type="submit" className="auth__submit-button button">
+        <button type="submit" className="auth__submit-button app__button">
           {props.buttonText}
         </button>
       </form>

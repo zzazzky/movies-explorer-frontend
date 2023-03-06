@@ -3,14 +3,14 @@ import arrowPath from "../../images/portfolio__arrow.svg";
 
 function Portfolio() {
   return (
-    <div className="portfolio">
+    <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
-      <ul className="portfolio__links list">
-        <li className="portfolio__item list__item">
+      <ul className="portfolio__links app__list">
+        <li className="portfolio__item app__list-item">
           <a
             href="https://github.com/zzazzky/gerasimova-how-to-learn"
             target="_blank"
-            className="portfolio__link button"
+            className="portfolio__link app__button"
           >
             <p className="portfolio__link-text">Статичный сайт</p>
             <img
@@ -20,11 +20,11 @@ function Portfolio() {
             ></img>
           </a>
         </li>
-        <li className="portfolio__item list__item">
+        <li className="portfolio__item app__list-item">
           <a
             href="https://github.com/zzazzky/russian-travel"
             target="_blank"
-            className="portfolio__link button"
+            className="portfolio__link app__button"
           >
             <p className="portfolio__link-text">Адаптивный сайт</p>
             <img
@@ -34,11 +34,11 @@ function Portfolio() {
             ></img>
           </a>
         </li>
-        <li className="portfolio__item list__item">
+        <li className="portfolio__item app__list-item">
           <a
             href="https://github.com/zzazzky/react-mesto-api-full"
             target="_blank"
-            className="portfolio__link button"
+            className="portfolio__link app__button"
           >
             <p className="portfolio__link-text">Одностраничное приложение</p>
             <img
@@ -49,7 +49,7 @@ function Portfolio() {
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }
 

@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Register() {
   const link = (
-    <Link className="auth__link button" to="/signin">
+    <Link className="auth__link app__button" to="/signin">
       Войти
     </Link>
   );

@@ -53,6 +53,9 @@
 }
 
 .header__signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #3DDC84;
   border-radius: 3px;
   border: none;
@@ -101,7 +104,9 @@
   .header {
     padding: 0 30px;
   }
+}
 
+@media screen and (max-width: 768px) {
   .header__menu-icon {
     display: block;
   }
@@ -111,7 +116,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 600px) {
   .header {
     padding: 0 14px;
   }

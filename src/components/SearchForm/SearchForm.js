@@ -14,12 +14,10 @@ function SearchForm() {
     switcherIsActive ? setSwitcherIsActive(false) : setSwitcherIsActive(true);
   }
 
-  const switcherClassName = switcherIsActive
-    ? "search-form__switcher search-form__switcher_active button"
-    : "search-form__switcher button";
+  const switcherState = switcherIsActive ? true : false;
 
   return (
-    <div className="search-form">
+    <section className="search-form" aria-label="Найти фильм">
       <form className="search-form__form" name="search-form">
         <input
           className="search-form__input"
@@ -30,17 +28,17 @@ function SearchForm() {
           placeholder="Фильм"
           onChange={handleSearchParamsChange}
         />
-        <button type="submit" className="search-form__button button">
+        <button type="submit" className="search-form__button app__button">
           Найти
         </button>
       </form>
       <div className="search-form__switcher-container">
-        <button className={switcherClassName} onClick={toggleSwitcher}>
-          <div className="search-form__toggler" />
-        </button>
-        <p className="search-form__text">Короткометражки</p>
+        <div className="app__button">
+          <input type="checkbox" checked={switcherState} className="search-form__switcher app__button" onChange={toggleSwitcher}/>
+          </div>
+        <span className="search-form__text">Короткометражки</span>
       </div>
-    </div>
+    </section>
   );
 }
 

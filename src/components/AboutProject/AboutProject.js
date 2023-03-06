@@ -3,7 +3,7 @@ import "./AboutProject.css";
 
 const AboutProject = forwardRef((props, ref) => {
   return (
-    <div ref={ref} className="about-project">
+    <section ref={ref} className="about-project">
       <h2 className="about-project__title">О проекте</h2>
       <div className="about-project__text-container">
         <h3 className="about-project__subtitle">
@@ -35,7 +35,7 @@ const AboutProject = forwardRef((props, ref) => {
         <p className="about-project__timeline-caption">Back-end</p>
         <p className="about-project__timeline-caption">Front-end</p>
       </div>
-    </div>
+    </section>
   );
 });
 

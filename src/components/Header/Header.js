@@ -21,19 +21,19 @@ function Header(props) {
   const headerContent = props.loggedIn ? (
     <>
       <nav className="header__navigation">
-        <ul className="header__text-container list">
-          <li className="list__item">
-            <Link to="/movies" className="header__bold-text button">
+        <ul className="header__text-container app__list">
+          <li className="app__list-item">
+            <Link to="/movies" className="header__bold-text app__button">
               Фильмы
             </Link>
           </li>
-          <li className="list__item">
-            <Link to="/saved-movies" className="header__text button">
+          <li className="app__list-item">
+            <Link to="/saved-movies" className="header__text app__button">
               Сохранённые фильмы
             </Link>
           </li>
         </ul>
-        <Link to="/profile" className="header__profile-button button">
+        <Link to="/profile" className="header__profile-button app__button">
           <img
             className="header__profile-button-icon"
             alt="Аккаунт"
@@ -42,19 +42,19 @@ function Header(props) {
           Аккаунт
         </Link>
       </nav>
-      <button className="header__menu-icon button" onClick={openNav} />
+      <button className="header__menu-icon app__button" onClick={openNav} />
       <Navigation isActive={navIsActive} closeNav={closeNav} />
     </>
   ) : (
-    <ul className="header__text-container list">
-      <li className="list__item">
-        <Link to="/signup" className="header__bold-text button">
+    <ul className="header__text-container app__list">
+      <li className="app__list-item">
+        <Link to="/signup" className="header__bold-text app__button">
           Регистрация
         </Link>
       </li>
-      <li className="list__item">
-        <Link to="/signin">
-          <button className="header__signin-button button">Войти</button>
+      <li className="app__list-item">
+        <Link to="/signin" className="header__signin-button app__button">
+          Войти
         </Link>
       </li>
     </ul>
@@ -64,7 +64,9 @@ function Header(props) {
 
   return (
     <header className={headerClassName}>
-      <img className="header__logo" alt="Логотип проекта" src={logoPath} />
+      <Link to='/' className="app__button">
+        <img className="header__logo" alt="Логотип проекта" src={logoPath} />
+      </Link>
       {headerContent}
     </header>
   );
