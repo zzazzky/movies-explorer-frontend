@@ -33,9 +33,7 @@ function SearchForm() {
         </button>
       </form>
       <div className="search-form__switcher-container">
-        <div className="app__button">
-          <input type="checkbox" checked={switcherState} className="search-form__switcher app__button" onChange={toggleSwitcher}/>
-          </div>
+          <input type="checkbox" checked={switcherState} className="search-form__switcher" onChange={toggleSwitcher}/>
         <span className="search-form__text">Короткометражки</span>
       </div>
     </section>

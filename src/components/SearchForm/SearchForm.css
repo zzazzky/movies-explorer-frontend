@@ -64,8 +64,13 @@
   appearance: none;
   background-color: #2F2F2F;
   padding: 0 2px;
-  transition: background-color 1s ease 0s;
+  transition: background-color 1s, opacity 0.3s;
   position: relative;
+}
+
+.search-form__switcher:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .search-form__switcher::before {
@@ -77,12 +82,11 @@
   position: absolute;
   top: 2px;
   left: 2px;
-  transition: left 1s ease 0s;
+  transition: left 1s;
 }
 
 .search-form__switcher:checked {
   background-color: #3DDC84;
-  transition: background-color 1s ease 0s;
 }
 
 .search-form__switcher:checked::before {
