@@ -1,0 +1,144 @@
+.header {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 70px;
+  position: relative;
+}
+
+.header_blue {
+  background-color: #073042;
+}
+
+.header__logo {
+  margin: 18px 0;
+  width: 38px;
+  object-fit: contain;
+}
+
+.header__text-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: auto 0;
+}
+
+.header__navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 38px);
+  margin: auto 0 auto 44px;
+}
+
+.header__bold-text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.header__text {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 138%;
+  color: #fff;
+  margin: 0 0 0 16px;
+  padding: 0;
+}
+
+.header__signin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3DDC84;
+  border-radius: 3px;
+  border: none;
+  width: 76px;
+  height: 32px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  color: #000;
+  margin: 0 0 0 30px;
+}
+
+.header__profile-button {
+  background-color: transparent;
+  border: 2px solid rgb(170, 170, 170, .2);
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 114%;
+  color: #fff;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.header__profile-button-icon {
+  width: 10px;
+  object-fit: contain;
+  margin: 0 4px 0 0;
+}
+
+.header__menu-icon {
+  border: none;
+  background-color: transparent;
+  background-image: url('../../images/header__menu-icon.svg');
+  background-size: 40px;
+  background-position: center;
+  width: 44px;
+  height: 44px;
+  margin: auto 0;
+  display: none;
+}
+
+
+
+@media screen and (max-width: 1023px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu-icon {
+    display: block;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__menu-icon {
+    width: 40px;
+    height: 43px;
+    background-size: 38px;
+  }
+
+  .header__bold-text {
+    font-size: 10px;
+    line-height: 160%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__signin-button {
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+    line-height: 160%;
+    margin: 0 0 0 14px;
+  }
+}

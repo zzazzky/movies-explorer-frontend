@@ -1,0 +1,28 @@
+.app {
+  background-color: #202020;
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+.app__button {
+  text-decoration: none;
+  transition: opacity 0.3s linear 0s;
+}
+
+.app__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.app__list {
+  margin: 0;
+  padding: 0;
+}
+
+.app__list-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
