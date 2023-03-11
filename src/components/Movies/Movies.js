@@ -4,7 +4,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import movies from "../../data/movies";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function Movies() {
+function Movies(props) {
   const renderCards = () => {
     return movies.map(movie => (
       <MoviesCard
@@ -19,7 +19,7 @@ function Movies() {
 
   return (
     <main className="movies">
-      <SearchForm />
+      <SearchForm findMovies={props.findMovies} />
       <MoviesCardList renderCards={renderCards} />
     </main>
   );

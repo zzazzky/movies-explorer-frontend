@@ -1,78 +1,78 @@
 import "./Register.css";
 import Auth from "../Auth/Auth";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import mainApi from "../../utils/MainApi";
 
-function Register() {
+function Register(props) {
   const link = (
     <Link className="auth__link app__button" to="/signin">
       Войти
     </Link>
   );
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
-  const [userName, setUserName] = useState("");
-
-  function handleUserEmailChange(e) {
-    setUserEmail(e.target.value);
-  }
-
-  function handleUserPasswordChange(e) {
-    setUserPassword(e.target.value);
-  }
-
-  function handleUserNameChange(e) {
-    setUserName(e.target.value);
+  
+  const registerValidation = props.useFormWithValidation();
+  const [userName, setUserName] = useState(registerValidation.values.username);
+  const [userEmail, setUserEmail] = useState(registerValidation.values.email);
+  const [userPassword, setUserPassword] = useState(registerValidation.values.password);
+  async function handleRegisterForm(e) {
+    e.preventDefault();
+    try {
+    await props.handleRegisterSubmit(registerValidation.values.username, registerValidation.values.email, registerValidation.values.password)
+  } catch(err) {console.log(err)}
+    registerValidation.resetForm()
   }
 
   return (
     <Auth
       title="Добро пожаловать!"
       formName="register__form"
-      buttonText="Зарегистрироваться"
       caption="Уже зарегистрированы?"
+      buttonText="Зарегистрирваться"
       link={link}
+      buttonDisability={!registerValidation.isValid}
+      onFormSubmit={handleRegisterForm}
     >
-      <label className="auth__input-label">
+        <label className="auth__input-label">
         Имя
         <input
-          className="auth__input"
+          className={registerValidation.errors.username ? "auth__input auth__input_error" : "auth__input" }
           type="text"
-          name="register-username"
+          name="username"
           minLength="2"
           maxLength="30"
           required
           value={userName}
           placeholder="Введите ваше имя..."
-          onChange={handleUserNameChange}
+          onChange={registerValidation.handleChange}
         />
-        <span className="auth__error"></span>
+        <span className="auth__error">{registerValidation.errors.username}</span>
       </label>
       <label className="auth__input-label">
         E-mail
         <input
-          className="auth__input"
-          name="register-email"
+          className={registerValidation.errors.email ? "auth__input auth__input_error" : "auth__input" }
+          name="email"
           required
           type="email"
           value={userEmail}
           placeholder="Введите E-mail..."
-          onChange={handleUserEmailChange}
+          onChange={registerValidation.handleChange}
         />
-        <span className="auth__error"></span>
+        <span className="auth__error">{userEmail}</span>
       </label>
       <label className="auth__input-label">
         Пароль
         <input
-          className="auth__input"
-          name="register-password"
+          className={registerValidation.errors.password ? "auth__input auth__input_error" : "auth__input" }
+          name="password"
           required
           type="password"
           value={userPassword}
           placeholder="Введите пароль..."
-          onChange={handleUserPasswordChange}
+          onChange={registerValidation.handleChange}
         />
-        <span className="auth__error"></span>
+        <span className="auth__error">{userPassword}</span>
       </label>
     </Auth>
   );

@@ -6,9 +6,9 @@ function Auth(props) {
     <main className="auth">
       <img className="auth__logo" src={logoPath} alt="Логотип проект" />
       <h1 className="auth__title">{props.title}</h1>
-      <form className="auth__form" name={props.formName}>
+      <form className="auth__form" name={props.formName} onSubmit={props.onFormSubmit}>
         <div className="auth__inputs">{props.children}</div>
-        <button type="submit" className="auth__submit-button app__button">
+        <button disabled={props.buttonDisability} type="submit" className="auth__submit-button app__button">
           {props.buttonText}
         </button>
       </form>

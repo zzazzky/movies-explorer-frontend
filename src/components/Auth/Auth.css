@@ -96,7 +96,7 @@
   margin: 0 0 16px 0;
 }
 
-.auth__submit-button_unactive {
+.auth__submit-button:disabled {
   background-color: transparent;
   border: #424242 1px solid;
 }
