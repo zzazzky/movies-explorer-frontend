@@ -81,6 +81,17 @@
   height: 12px;
 }
 
+.auth__submit-error {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 120%;
+  text-align: center;
+  color: #EE3465;
+  padding: 0;
+  margin: 20px 0;
+  height: 12px;
+}
+
 .auth__submit-button {
   height: 45px;
   width: 100%;

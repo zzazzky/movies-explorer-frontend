@@ -64,7 +64,7 @@ function Header(props) {
 
   return (
     <header className={headerClassName}>
-      <Link to='/' className="app__button">
+      <Link to="/" className="app__button">
         <img className="header__logo" alt="Логотип проекта" src={logoPath} />
       </Link>
       {headerContent}

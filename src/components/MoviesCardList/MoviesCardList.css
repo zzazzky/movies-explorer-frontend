@@ -3,6 +3,7 @@
   padding: 80px 70px 0 70px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .movies-card-list__container {
@@ -29,6 +30,14 @@
   color: #FFFFFF;
 }
 
+.movies-card-list__text {
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 125%;
+  text-align: center;
+  color: #FFFFFF;
+}
 
 @media screen and (max-width: 1023px) {
   .movies-card-list {
