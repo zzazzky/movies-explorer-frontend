@@ -42,10 +42,15 @@ function MoviesCard(props) {
             if (location.pathname === "/saved-movies") {
               props.setCards(res.movies);
             }
+            
           })
           .catch(err => {
             if (err === 404) {
               console.log("Кажется, у вас нет добавленных фильмов");
+              props.setSavedMovies([]);
+              if (location.pathname === "/saved-movies") {
+                props.setCards([]);
+              }
             } else {
               console.log("500 На сервере произошла ошибка.");
             }

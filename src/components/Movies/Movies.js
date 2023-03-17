@@ -58,8 +58,6 @@ function Movies(props) {
         }
       })
       .then(() => {
-        console.log(JSON.parse(localStorage.getItem("movies")).movies.length);
-        console.log(cards.length);
         setIsMoreButtonActive(
           0 < cards.length &&
             cards.length <
@@ -150,12 +148,14 @@ function Movies(props) {
   }, []);
 
   useEffect(() => {
-    setCards(
-      JSON.parse(localStorage.getItem("movies")).movies.slice(
-        0,
-        initialCardsQuantity
-      )
-    );
+    if (JSON.parse(localStorage.getItem("movies"))) {
+      setCards(
+        JSON.parse(localStorage.getItem("movies")).movies.slice(
+          0,
+          initialCardsQuantity
+        )
+      );
+    }
   }, [initialCardsQuantity]);
 
   const renderCards = movies => {
