@@ -77,6 +77,7 @@ function Register(props) {
           name="email"
           required
           type="email"
+          pattern="[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]{2,}"
           value={userEmail}
           placeholder="Введите E-mail..."
           onChange={registerValidation.handleChange}

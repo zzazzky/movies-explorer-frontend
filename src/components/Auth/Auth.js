@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import "./Auth.css";
 import logoPath from "../../images/logo.svg";
 
 function Auth(props) {
   return (
     <main className="auth">
-      <img className="auth__logo" src={logoPath} alt="Логотип проект" />
+      <Link to="/" className="app__button">
+        <img className="auth__logo" src={logoPath} alt="Логотип проект" />
+      </Link>
       <h1 className="auth__title">{props.title}</h1>
       <form
         className="auth__form"

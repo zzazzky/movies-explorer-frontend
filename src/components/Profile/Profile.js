@@ -13,14 +13,18 @@ function Profile(props) {
   const [userName] = useState(profileValidation.values.username);
   const [userEmail] = useState(profileValidation.values.email);
   const [submitErrorText, setSubmitErrorText] = useState("");
+  const [inputsIsUnactive, setInputsIsUnactive] = useState(false);
+  const [successSubmitText, setSuccessSubmitText] = useState('');
 
   async function handleProfileFormSubmit(e) {
     e.preventDefault();
+    setInputsIsUnactive(true);
     props
       .handleChangeUserDataSubmit(
-        profileValidation.values.username,
-        profileValidation.values.email
+        profileValidation.values.username ? profileValidation.values.username : currentUser.name,
+        profileValidation.values.email ? profileValidation.values.email : currentUser.email
       )
+      .then(() => setSuccessSubmitText('Данные профиля успешно изменены!'))
       .then(() => setIsInEdition(false))
       .then(() => profileValidation.resetForm())
       .catch(err => {
@@ -29,7 +33,8 @@ function Profile(props) {
         } else {
           setSubmitErrorText("При обновлении профиля произошла ошибка.");
         }
-      });
+      })
+      .finally(setInputsIsUnactive(false));
   }
 
   function handleEditButtonClick() {
@@ -60,8 +65,10 @@ function Profile(props) {
                 maxLength="30"
                 required
                 value={userName}
+                defaultValue={currentUser.name}
                 placeholder="Введите новое имя..."
                 onChange={profileValidation.handleChange}
+                disabled={inputsIsUnactive}
               />
             </label>
             <span className="profile__error">
@@ -76,11 +83,14 @@ function Profile(props) {
                     : "profile__item"
                 }
                 type="email"
+                pattern="[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]{2,}"
                 name="email"
                 required
+                defaultValue={currentUser.email}
                 value={userEmail}
                 placeholder="Введите новый E-mail..."
                 onChange={profileValidation.handleChange}
+                disabled={inputsIsUnactive}
               />
             </label>
             <span className="profile__error">
@@ -92,6 +102,10 @@ function Profile(props) {
                 disabled={
                   !profileValidation.isValid ||
                   (currentUser.name === profileValidation.values.username &&
+                    currentUser.email === profileValidation.values.email) ||
+                  (currentUser.name === profileValidation.values.username &&
+                    !profileValidation.values.email) ||
+                  (!profileValidation.values.username &&
                     currentUser.email === profileValidation.values.email)
                 }
                 type="submit"
@@ -104,16 +118,16 @@ function Profile(props) {
         ) : (
           <>
             <div className="profile__container">
-              <div className="profile__label">
+              <div className="profile__text-container">
                 <p className="profile__item">Имя</p>
                 <p className="profile__item">{currentUser.name}</p>
               </div>
-              <span className="profile__error"></span>
-              <div className="profile__label">
+              <div className="profile__text-container">
                 <p className="profile__item">E-mail</p>
                 <p className="profile__item">{currentUser.email}</p>
               </div>
-              <span className="profile__error"></span>
+            </div>
+            <p className="profile__success-message">{successSubmitText}</p>
               <button
                 type="button"
                 className="profile__edit-button app__button"
@@ -121,7 +135,6 @@ function Profile(props) {
               >
                 Редактировать
               </button>
-            </div>
             <button
               className="profile__logout-button app__button"
               onClick={props.handleLogoutButtonClick}

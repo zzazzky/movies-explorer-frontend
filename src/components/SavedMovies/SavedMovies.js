@@ -10,12 +10,12 @@ import mainApi from "../../utils/MainApi";
 function SavedMovies(props) {
   const [switcherIsActive, setSwitcherIsActive] = useState(true);
   const [cards, setCards] = useState([]);
-  const [savedMovies, setSavedMovies] = useState([]);
+
   const [searchParams, setSearchParams] = useState("");
   const [searchResultText, setSearchResultText] = useState("");
 
   function findMovies(searchParams, isShorts) {
-    const movies = savedMovies.filter(movie =>
+    const movies = props.savedMovies.filter(movie =>
       movie.nameRU.toLowerCase().includes(searchParams.toLowerCase())
     );
     if (movies.length === 0) {
@@ -45,7 +45,7 @@ function SavedMovies(props) {
       .getMovies()
       .then(({ movies }) => {
         setCards(movies);
-        setSavedMovies(movies);
+        props.setSavedMovies(movies);
       })
       .catch(err => {
         if (err === 404) {
@@ -71,7 +71,7 @@ function SavedMovies(props) {
         trailerLink={movie.trailerLink}
         isLiked={true}
         setCards={setCards}
-        setSavedMovies={setSavedMovies}
+        setSavedMovies={props.setSavedMovies}
       />
     ));
   };

@@ -9,7 +9,6 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import mainApi from "../../utils/MainApi";
 
 function Movies(props) {
-  const [savedMovies, setSavedMovies] = useState([]);
   const [switcherIsActive, setSwitcherIsActive] = useState(true);
   const [preloaderIsActive, setPreloaderIsActive] = useState(false);
   const [cards, setCards] = useState([]);
@@ -102,7 +101,7 @@ function Movies(props) {
     mainApi
       .getMovies()
       .then(({ movies }) => {
-        setSavedMovies(movies);
+        props.setSavedMovies(movies);
       })
       .catch(err => {
         if (err === 404) {
@@ -171,10 +170,10 @@ function Movies(props) {
             : `${movie.duration} мин`
         }
         trailerLink={movie.trailerLink}
-        isLiked={savedMovies.some(
+        isLiked={props.savedMovies.some(
           savedMovie => savedMovie.movieId.toString() === movie.id.toString()
         )}
-        setSavedMovies={setSavedMovies}
+        setSavedMovies={props.setSavedMovies}
       />
     ));
   };

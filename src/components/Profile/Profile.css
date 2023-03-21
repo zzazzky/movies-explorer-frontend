@@ -40,6 +40,24 @@
   border-top: #424242 1px solid;
 }
 
+.profile__text-container {
+  margin: 0 auto;
+  padding: 17px 0 16px 0;
+  width: 410px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 118%;
+  text-align: right;
+}
+
+.profile__text-container:last-of-type {
+  border-top: #424242 1px solid;
+}
+
 .profile__item {
   color: transparent;
   padding: 0;
@@ -83,10 +101,21 @@
   height: 12px;
 }
 
+.profile__success-message {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 120%;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 0;
+  margin: 26vh 0 20px 0;
+  height: 12px;
+}
+
 .profile__edit-button {
   background-color: transparent;
   border: none;
-  margin: 26vh auto 0 auto;
+  margin: 0 auto;
   padding: 0;
   font-weight: 400;
   font-size: 13px;

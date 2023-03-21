@@ -56,6 +56,7 @@ function Login(props) {
           name="email"
           required
           type="email"
+          pattern="[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]{2,}"
           value={userEmail}
           onChange={loginValidation.handleChange}
           placeholder="Введите E-mail..."

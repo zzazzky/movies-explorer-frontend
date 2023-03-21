@@ -16,7 +16,7 @@ import AuthorizationRouteElement from "../AuthorizationRouteElement/Authorizatio
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const [savedMovies, setSavedMovies] = useState([]);
   const [loggedIn, setLoggedIn] = useState(
     location.pathname === "/movies" ||
       location.pathname === "/saved-movies" ||
@@ -82,7 +82,8 @@ function App() {
     mainApi
       .logout()
       .then(() => setLoggedIn(false))
-      .then(() => localStorage.removeItem("currentUser"))
+      .then(() => localStorage.removeItem("movies"))
+      .then(() => savedMovies([]))
       .then(() =>
         setCurrentUser({
           _id: "",
@@ -124,7 +125,12 @@ function App() {
           <Route
             path="/movies"
             element={
-              <ProtectedRouteElement component={Movies} loggedIn={loggedIn} />
+              <ProtectedRouteElement
+              component={Movies}
+              loggedIn={loggedIn} 
+              setSavedMovies={setSavedMovies}
+              savedMovies={savedMovies}
+              />
             }
           />
           <Route
@@ -133,6 +139,8 @@ function App() {
               <ProtectedRouteElement
                 component={SavedMovies}
                 loggedIn={loggedIn}
+                setSavedMovies={setSavedMovies}
+                savedMovies={savedMovies}
               />
             }
           />
