@@ -1,20 +1,30 @@
 import "./MoviesCardList.css";
-
-import { useLocation } from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
 
 function MoviesCardList(props) {
-  const location = useLocation();
-  const moreButton = location.pathname === "/movies" && (
-    <button type="button" className="movies-card-list__button app__button">
-      Ещё
-    </button>
-  );
   return (
     <section className="movies-card-list" aria-label="Список фильмов">
-      <ul className="movies-card-list__container app__list">
-        {props.renderCards()}
-      </ul>
-      {moreButton}
+      <p className="movies-card-list__text">{props.searchResultText}</p>
+      {props.preloaderIsActive ? (
+        <Preloader />
+      ) : (
+        props.cards && (
+          <>
+            <ul className="movies-card-list__container app__list">
+              {props.renderCards(props.cards)}
+            </ul>
+            {props.isMoreButtonActive && (
+              <button
+                type="button"
+                className="movies-card-list__button app__button"
+                onClick={props.handleMoreButtonClick}
+              >
+                Ещё
+              </button>
+            )}
+          </>
+        )
+      )}
     </section>
   );
 }

@@ -23,7 +23,10 @@ function NavTab(props) {
           >
             О проекте
           </li>
-          <li className="nav-tab__item app__list-item app__button" onClick={scrollToTechs}>
+          <li
+            className="nav-tab__item app__list-item app__button"
+            onClick={scrollToTechs}
+          >
             Технологии
           </li>
           <li

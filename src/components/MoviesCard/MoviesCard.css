@@ -7,9 +7,15 @@
   flex-direction: column;
 }
 
+.movie-card__link {
+  width: 100%;
+  height: 56.25%;
+}
+
 .movie-card__picture {
   display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   margin: 0 auto 0 auto;
   padding: 0;
