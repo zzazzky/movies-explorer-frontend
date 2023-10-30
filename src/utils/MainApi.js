@@ -13,66 +13,66 @@ class MainApi {
   }
 
   _request(url, options) {
-    return fetch(url, options).then(res => this._checkResponse(res));
+    return fetch(url, options).then((res) => this._checkResponse(res));
   }
 
   createUser(userName, userEmail, userPassword) {
     return this._request(`${this._baseUrl}/signup`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
       body: JSON.stringify({
         email: userEmail,
         name: userName,
         password: userPassword,
       }),
-    }).then(res => res);
+    }).then((res) => res);
   }
 
   login(userEmail, userPassword) {
     return this._request(`${this._baseUrl}/signin`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
       body: JSON.stringify({ email: userEmail, password: userPassword }),
-    }).then(res => res);
+    }).then((res) => res);
   }
 
   getCurrentUser() {
     return this._request(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      credentials: "include",
-    }).then(res => res);
+      method: 'GET',
+      credentials: 'include',
+    }).then((res) => res);
   }
 
   changeUserData(userName, userEmail) {
     return this._request(`${this._baseUrl}/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
       body: JSON.stringify({ name: userName, email: userEmail }),
-    }).then(res => res);
+    }).then((res) => res);
   }
 
   logout() {
     return this._request(`${this._baseUrl}/signout`, {
-      method: "GET",
-      credentials: "include",
-    }).then(res => res);
+      method: 'GET',
+      credentials: 'include',
+    }).then((res) => res);
   }
 
   getMovies() {
     return this._request(`${this._baseUrl}/movies`, {
-      method: "GET",
-      credentials: "include",
-    }).then(res => res);
+      method: 'GET',
+      credentials: 'include',
+    }).then((res) => res);
   }
 
   likeMovie(movieData) {
     return this._request(`${this._baseUrl}/movies`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
       body: JSON.stringify({
         country: movieData.country,
         director: movieData.director,
@@ -86,21 +86,21 @@ class MainApi {
         nameRU: movieData.nameRU,
         nameEN: movieData.nameEN,
       }),
-    }).then(res => res);
+    }).then((res) => res);
   }
 
   dislikeMovie(id) {
     return this._request(`${this._baseUrl}/movies/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
-      credentials: "include",
-    }).then(res => res);
+      credentials: 'include',
+    }).then((res) => res);
   }
 }
 
 const mainApi = new MainApi({
-  baseUrl: "https://api.diploma.gerasimova.nomoredomains.work",
-  headers: { "Content-Type": "application/json" },
+  baseUrl: 'http://localhost:3001',
+  headers: { 'Content-Type': 'application/json' },
 });
 
 export default mainApi;
